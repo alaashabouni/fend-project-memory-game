@@ -24,7 +24,15 @@ function shuffle(array) {
 
     return array;
 }
+// event listener if card is clicked
+const deck = document.querySelector('.deck');
 
+deck.addEventListener('click', event => {
+  const clickTarget = event.target;
+  if (clickTarget.classList.contains('card')){
+    console.log('I am a card!');
+  }
+})
 
 /*
  * set up the event listener for a card. If a card is clicked:
