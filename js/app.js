@@ -29,9 +29,12 @@ const deck = document.querySelector('.deck');
 
 deck.addEventListener('click', event => {
   const clickTarget = event.target;
-  if (clickTarget.classList.contains('card')) {
+  if (clickTarget.classList.contains('card') && toggleCards.length < 2) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
+    if (toggleCards.length === 2) {
+      console.log('2 cards');
+    }
   }
 });
 
