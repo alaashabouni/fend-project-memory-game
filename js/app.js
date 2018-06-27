@@ -27,29 +27,31 @@ function shuffle(array) {
 // event listener if card is clicked they turn over
 const deck = document.querySelector('.deck');
 
+let toggledCards = [];
+
 deck.addEventListener('click', event => {
   const clickTarget = event.target;
-  if (clickTarget.classList.contains('card') && toggleCards.length < 2) {
+  if (clickTarget.classList.contains('card') && toggledCards.length < 2) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
-    if (toggleCards.length === 2) {
+    if (toggledCards.length === 2) {
       console.log('2 cards');
     }
   }
 });
 
 function toggleCard(clickTarget){
-  card.classList.toggle('open');
-  card.classList.toggle('show');
+  clickTarget.classList.toggle('open');
+  clickTarget.classList.toggle('show');
 }
 
 //add turned over cards to array
 function addToggleCard(clickTarget){
-  togglecards.push(clickTarget);
-  console.log(toggleCards);
+  toggledCards.push(clickTarget);
+  console.log(toggledCards);
 }
 
-let toggleCards = [];
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
