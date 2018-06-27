@@ -24,13 +24,14 @@ function shuffle(array) {
 
     return array;
 }
-// event listener if card is clicked
+// event listener if card is clicked they turn over
 const deck = document.querySelector('.deck');
 
 deck.addEventListener('click', event => {
   const clickTarget = event.target;
-  if (clickTarget.classList.contains('card')){
-    console.log('I am a card!');
+  if (clickTarget.classList.contains('card')) {
+    clickTarget.classList.toggle('open');
+    clickTarget.classList.toggle('show');
   }
 })
 
