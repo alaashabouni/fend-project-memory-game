@@ -24,31 +24,50 @@ function shuffle(array) {
 
     return array;
 }
-// event listener if card is clicked they turn over
-const deck = document.querySelector('.deck');
 
+const deck = document.querySelector('.deck');
 let toggledCards = [];
 
+// event listener if card is clicked
 deck.addEventListener('click', event => {
   const clickTarget = event.target;
   if (clickTarget.classList.contains('card') && toggledCards.length < 2) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
-    if (toggledCards.length === 2) {
-      console.log('2 cards');
-    }
+  }
+  if  (toggledCards.length === 2) {
+    checkMatch(clickTarget);
   }
 });
 
-function toggleCard(clickTarget){
+//Turn over card
+function toggleCard(clickTarget) {
   clickTarget.classList.toggle('open');
   clickTarget.classList.toggle('show');
 }
 
-//add turned over cards to array
-function addToggleCard(clickTarget){
+//Add turned over cards to array
+function addToggleCard(clickTarget) {
   toggledCards.push(clickTarget);
   console.log(toggledCards);
+}
+
+//Check if cards match
+function checkMatch() {
+  if (
+    toggledCards[0].firstElementChild.className ===
+    toggledCards[1].firstElementChild.className
+  ){
+    toggledCards[0].classList.toggle('match');
+    toggledCards[1].classList.toggle('match');
+    toggledCards = [];
+  } else {
+    setTimeout(() =>{
+    toggleCard(toggledCards[0]);
+    toggleCard(toggledCards[1]);
+    toggledCards = [];
+  }, 1000);
+}
 }
 
 
