@@ -41,6 +41,7 @@ deck.addEventListener('click', event => {
   if  (toggledCards.length === 2) {
     checkMatch(clickTarget);
     countMoves();
+    countStars();
   }
 });
 
@@ -93,6 +94,21 @@ function countMoves() {
   moveText.innerHTML = moves;
 }
 
+//Star Count based on moves
+function countStars(){
+  if (moves === 17 || moves === 25){
+   removeStar();}
+}
+
+function removeStar(){
+  const starList = document.querySelectorAll('.stars li');
+  for (star of starList){
+    if (star.style.display !== 'none') {
+      star.style.display = 'none';
+      break;
+    }
+  }
+}
 
 
 /*
