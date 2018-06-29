@@ -73,6 +73,15 @@ function checkMatch() {
 }
 }
 
+//Shuffle cards in the deck each time
+function deckShuffle () {
+  const shuffleTheseCards = Array.from(document.querySelectorAll('.deck li'));
+  const shuffledCards = shuffle(shuffleTheseCards);
+  for (card of shuffledCards) {
+    deck.appendChild(card);
+  }
+}
+deckShuffle();
 
 /*
  * set up the event listener for a card. If a card is clicked:
