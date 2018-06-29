@@ -40,6 +40,7 @@ deck.addEventListener('click', event => {
   }
   if  (toggledCards.length === 2) {
     checkMatch(clickTarget);
+    countMoves();
   }
 });
 
@@ -82,6 +83,17 @@ function deckShuffle () {
   }
 }
 deckShuffle();
+
+//Count moves made
+let moves = 0;
+
+function countMoves() {
+  moves++;
+  const moveText = document.querySelector('.moves');
+  moveText.innerHTML = moves;
+}
+
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
