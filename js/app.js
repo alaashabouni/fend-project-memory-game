@@ -25,25 +25,40 @@ function shuffle(array) {
     return array;
 }
 
+//Global scope variables
 const deck = document.querySelector('.deck');
 let toggledCards = [];
+let moves = 0;
+let clockOff = true
+let time = 0;
+let clockId;
 
 // event listener if card is clicked
 deck.addEventListener('click', event => {
   const clickTarget = event.target;
-  if (clickTarget.classList.contains('card')
-  && !clickTarget.classList.contains('match')
-  && toggledCards.length < 2
-  && !toggledCards.includes(clickTarget)) {
+  if (isClickValid(clickTarget)) {
+    if (clockOff) {
+      timerStart();
+      clockOff = false;
+    }
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
-  }
-  if  (toggledCards.length === 2) {
-    checkMatch(clickTarget);
-    countMoves();
-    countStars();
+    if  (toggledCards.length === 2) {
+      checkMatch(clickTarget);
+      countMoves();
+      countStars();
+    }
   }
 });
+
+function isClickValid(clickTarget) {
+  return (
+    clickTarget.classList.contains('card')
+    && !clickTarget.classList.contains('match')
+    && toggledCards.length < 2
+    && !toggledCards.includes(clickTarget)
+  );
+}
 
 //Turn over card
 function toggleCard(clickTarget) {
@@ -86,8 +101,6 @@ function deckShuffle () {
 deckShuffle();
 
 //Count moves made
-let moves = 0;
-
 function countMoves() {
   moves++;
   const moveText = document.querySelector('.moves');
@@ -96,7 +109,7 @@ function countMoves() {
 
 //Star Count based on moves
 function countStars(){
-  if (moves === 17 || moves === 25){
+  if (moves === 17 || moves === 22){
    removeStar();}
 }
 
@@ -109,6 +122,25 @@ function removeStar(){
     }
   }
 }
+
+//Game timer
+function timerStart() {
+  clockId = setInterval(() => {
+    time++;
+    displayTime();
+    console.log(time);
+  }, 1000);
+}
+
+function displayTime() {
+  const minutes = Math.floor(time/60);
+  const seconds = time % 60;
+  const clock = document.querySelector('.clock');
+  console.log(clock);
+  clock.innerHTML = time;
+}
+
+
 
 
 /*
