@@ -107,3 +107,35 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.popup-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.438);
+}
+
+.popup-body {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  top:50%;
+  left:50%;
+  background: white;
+  transform: translate(-50%, -70%);
+}
+
+.popup-heading {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid gray;
+}
+
+.popup-close {
+  font-weight: bold;
+  font-size: 2rem;
+}

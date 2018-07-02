@@ -127,21 +127,25 @@ function removeStar(){
 function timerStart() {
   clockId = setInterval(() => {
     time++;
-    displayTime();
+    showTime();
     console.log(time);
   }, 1000);
 }
 
-function displayTime() {
+function showTime() {
   const minutes = Math.floor(time/60);
   const seconds = time % 60;
   const clock = document.querySelector('.clock');
-  console.log(clock);
-  clock.innerHTML = time;
+  if (seconds < 10) {
+    clock.innerHTML = `${minutes}:0${seconds}`;
+  } else {
+    clock.innerHTML =`${minutes}:${seconds}`;
+  }
 }
 
-
-
+function timerStop() {
+  clearInterval(clickId);
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
