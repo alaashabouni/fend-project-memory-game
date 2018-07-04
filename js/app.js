@@ -33,6 +33,15 @@ let clockOff = true
 let time = 0;
 let clockId;
 
+//Modal test
+time = 121;
+showTime();
+moves = 17;
+countStars();
+
+writePopupStats();
+togglePopup();
+
 // event listener if card is clicked
 deck.addEventListener('click', event => {
   const clickTarget = event.target;
@@ -153,6 +162,31 @@ function togglePopup() {
   const popup = document.querySelector('.popup-background');
   popup.classList.toggle('hide');
 }
+
+function getStars() {
+  stars = document.querySelectorAll('.stars li');
+  starCount = 0;
+  for (star of stars) {
+    if (star.style.display !== 'none') {
+      starCount++;
+    }
+  }
+  console.log(starCount);
+  return starCount;
+}
+
+function writePopupStats() {
+  const timeStat = document.querySelector('.popup-time');
+  const clockTime = document.querySelector('.clock').innerHTML;
+  const movesStat = document.querySelector('.popup-moves');
+  const starsStat = document.querySelector('.popup-stars');
+  const stars = getStars();
+
+  timeStat.innerHTML = `Time = ${clockTime}`;
+  movesStat.innerHTML = `Moves = ${moves}`;
+  starsStat.innerHTML = `Stars = ${stars}`;
+}
+
 
 
 
