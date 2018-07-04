@@ -120,7 +120,7 @@ h1 {
 .popup-body {
   position: relative;
   width: 400px;
-  top:50%;
+  top:40%;
   left:50%;
   background: white;
   transform: translate(-50%, -70%);
@@ -157,4 +157,8 @@ h1 {
   width: 60px;
   height: 30px;
   background: gray;
+}
+
+.hide {
+  display: none;
 }
