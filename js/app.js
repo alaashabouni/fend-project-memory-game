@@ -32,15 +32,8 @@ let moves = 0;
 let clockOff = true
 let time = 0;
 let clockId;
-
-//Modal test
-time = 121;
-showTime();
-moves = 17;
-countStars();
-
-writePopupStats();
-togglePopup();
+let matched = 0;
+const totalPairs = 8;
 
 // event listener if card is clicked
 deck.addEventListener('click', event => {
@@ -83,6 +76,7 @@ function addToggleCard(clickTarget) {
 
 //Check if cards match
 function checkMatch() {
+  const TOTAL_PAIRS = 8;
   if (
     toggledCards[0].firstElementChild.className ===
     toggledCards[1].firstElementChild.className
@@ -90,12 +84,16 @@ function checkMatch() {
     toggledCards[0].classList.toggle('match');
     toggledCards[1].classList.toggle('match');
     toggledCards = [];
+    matched++;
   } else {
     setTimeout(() =>{
     toggleCard(toggledCards[0]);
     toggleCard(toggledCards[1]);
     toggledCards = [];
   }, 1000);
+}
+if (matched === totalPairs){
+  gameOver();
 }
 }
 
@@ -153,16 +151,17 @@ function showTime() {
 }
 
 function timerStop() {
-  clearInterval(clickId);
+  clearInterval(clockId);
 }
 
-//End Game & popup
+//END GAME
 
 function togglePopup() {
   const popup = document.querySelector('.popup-background');
   popup.classList.toggle('hide');
 }
 
+//Display star count in popup
 function getStars() {
   stars = document.querySelectorAll('.stars li');
   starCount = 0;
@@ -175,6 +174,7 @@ function getStars() {
   return starCount;
 }
 
+//Show game Stats when popup is called
 function writePopupStats() {
   const timeStat = document.querySelector('.popup-time');
   const clockTime = document.querySelector('.clock').innerHTML;
@@ -185,6 +185,54 @@ function writePopupStats() {
   timeStat.innerHTML = `Time = ${clockTime}`;
   movesStat.innerHTML = `Moves = ${moves}`;
   starsStat.innerHTML = `Stars = ${stars}`;
+}
+
+//Game Over and reset
+function resetGame() {
+  resetClockAndTime();
+  resetMoves();
+  resetStars();
+  deckShuffle();
+}
+
+function resetClockAndTime() {
+  timerStop();
+  clockOff = true;
+  time = 0;
+  showTime();
+}
+
+function resetMoves() {
+  moves = 0;
+  document.querySelector('.moves').innerHTML = moves;
+}
+
+function resetStars() {
+  stars = 0;
+  const starList = document.querySelectorAll('.stars li');
+  for (star of starList) {
+    star.style.display = 'inline';
+  }
+}
+
+
+//Close popup when Cancel button clicked
+document.querySelector('.popup-cancel').addEventListener('click', () => {
+  togglePopup();
+})
+
+//Reset game when replay button clicked
+document.querySelector('.popup-replay').addEventListener('click', resetGame);
+
+//Reset game when restart icon clicked
+document.querySelector('.restart').addEventListener('click', resetGame);
+
+//Game over
+
+function gameOver() {
+    timerStop();
+    writePopupStats();
+    togglePopup();
 }
 
 
