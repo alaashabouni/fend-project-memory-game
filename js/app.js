@@ -76,7 +76,6 @@ function addToggleCard(clickTarget) {
 
 //Check if cards match
 function checkMatch() {
-  const TOTAL_PAIRS = 8;
   if (
     toggledCards[0].firstElementChild.className ===
     toggledCards[1].firstElementChild.className
@@ -135,7 +134,7 @@ function timerStart() {
   clockId = setInterval(() => {
     time++;
     showTime();
-    console.log(time);
+    //console.log(time);
   }, 1000);
 }
 
@@ -193,6 +192,7 @@ function resetGame() {
   resetMoves();
   resetStars();
   deckShuffle();
+  resetDeck();
 }
 
 function resetClockAndTime() {
@@ -215,6 +215,12 @@ function resetStars() {
   }
 }
 
+function resetDeck() {
+    const resetCards = Array.from(document.querySelectorAll('.card'));
+    for (card of resetCards){
+        card.classList.remove('open', 'show', 'match');
+    }
+}
 
 //Close popup when Cancel button clicked
 document.querySelector('.popup-cancel').addEventListener('click', () => {
@@ -222,7 +228,7 @@ document.querySelector('.popup-cancel').addEventListener('click', () => {
 })
 
 //Reset game when replay button clicked
-document.querySelector('.popup-replay').addEventListener('click', resetGame);
+document.querySelector('.popup-replay').addEventListener('click', replayGame);
 
 //Reset game when restart icon clicked
 document.querySelector('.restart').addEventListener('click', resetGame);
@@ -233,6 +239,12 @@ function gameOver() {
     timerStop();
     writePopupStats();
     togglePopup();
+}
+
+//Reset game when replay is clicked
+function replayGame() {
+  resetGame();
+  togglePopup();
 }
 
 
