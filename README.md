@@ -21,14 +21,14 @@ The point of this game is to find all eight matching card pairs in the least amo
 -  If you make a mistake during play, click the restart icon to start over.
 - The amount of stars represents how well you are doing in the game. The star counter will decrease as the number of moves you make increases. The more stars you end the game with, the better.
 
-##Download
+## Download
 
 1. You can download the game from GitHub by clicking the green button that says "Clone or download" on the right hand side of the page.
 2. Extract zipped files downloaded, and save to a file destination on your computer
 3. Open the index.html file with a web browser such as Google Chrome or FireFox to play the game.
 
 
-##Contributions
+## Contributions
 Code is free to use if you would like. Pull requests to add new features are more than welcome.
 
 ## Dependencies
