@@ -71,7 +71,6 @@ function toggleCard(clickTarget) {
 //Add turned over cards to array
 function addToggleCard(clickTarget) {
   toggledCards.push(clickTarget);
-  console.log(toggledCards);
 }
 
 //Check if cards match
@@ -134,7 +133,6 @@ function timerStart() {
   clockId = setInterval(() => {
     time++;
     showTime();
-    //console.log(time);
   }, 1000);
 }
 
@@ -169,7 +167,6 @@ function getStars() {
       starCount++;
     }
   }
-  console.log(starCount);
   return starCount;
 }
 
@@ -193,6 +190,8 @@ function resetGame() {
   resetStars();
   deckShuffle();
   resetDeck();
+  matched = 0;
+  toggledCards = [];
 }
 
 function resetClockAndTime() {
@@ -245,7 +244,7 @@ function gameOver() {
 function replayGame() {
   resetGame();
   togglePopup();
-}
+  }
 
 
 

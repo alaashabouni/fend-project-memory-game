@@ -1,20 +1,25 @@
 # Memory Game Project
 
+This is a simple memory card game to help you with concentration. The point of this game find all eight matching card pairs in the least amount of moves. Keep playing to increase your memory skills.
+
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Mentions](#mentions)
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+1. Click any card on the board
+2. Click a second card. If the second card matches the first card, both cards will remain exposed. If they do not match, both cards turn over.
+3. Repeat the process until you have uncovered all eight pairs.
 
-To get started, open `js/app.js` and start building out the app's functionality
+### Notes: 
+- Once the game has ended, play again by clicking "Replay" button
+-  If you make a mistake during play, click the restart icon to start over
+- The amount of stars represents how well you are doing in the game. The star counter will decrease as the number of moves you make increases. The more stars you end the game with, the better.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
 
-## Contributing
+## Mentions
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+Udacity provided start code and shuffle function
+Deck shuffle animation from @ https://github.com/daneden/animate.css/
