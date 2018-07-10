@@ -6,9 +6,9 @@ The point of this game is to find all eight matching card pairs in the least amo
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Download](#Download/Installation)
+* [Download](#Download)
 * [Contributions](#Contributions)
-* [Dependencies & Acknowledgements](#Dependencies & Acknowledgements)
+* [Dependencie/Acknowledgements](#Dependencies & Acknowledgements)
 
 ## Instructions
 
