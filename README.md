@@ -31,7 +31,7 @@ The point of this game is to find all eight matching card pairs in the least amo
 ##Contributions
 Code is free to use if you would like. Pull requests to add new features are more than welcome.
 
-## Dependencies & Acknowledgements
+## Dependencies
 - Udacity provided starter code and shuffle function.
   - Project forked from @richardkalehoff
   - Shuffle function from http://stackoverflow.com/a/2450976
